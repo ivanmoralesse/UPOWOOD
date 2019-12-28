@@ -64,6 +64,8 @@
 					<group expand="0" string="Agrupar por...">
 						<filter name="group_by_cliente" string="Cliente"
 							context="{'group_by':'cliente_id'}" />
+						<filter name="group_by_empleado" string="Empleado"
+							context="{'group_by':'empleado_id'}" />
 					</group>
 				</search>
 			</field>

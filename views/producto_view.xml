@@ -62,11 +62,27 @@
 				</calendar>
 			</field>
 		</record>
+		
+		<record model="ir.ui.view" id="view_upowood_producto_search">
+			<field name="name">view_upowood_producto_search</field>
+			<field name="model">upowood.producto</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Productos">
+					<filter string="Productos vendidos"
+						domain="[('vendido','=', True)]" />
+					<filter string="Productos no vendidos"
+						domain="[('vendido','=', False)]" />
+				</search>
+			</field>
+		</record>
 
 		<record id="act_producto" model="ir.actions.act_window">
 			<field name="name">Productos</field>
 			<field name="res_model">upowood.producto</field>
 			<field name="view_mode">tree,form,calendar</field>
+			
+			<field name="search_view_id" ref="view_upowood_producto_search" />
 		</record>
 
 		<menuitem name="Productos" id="productos_submenu"
