@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_upowood_empleado_form">
+			<field name="name">view_upowood_empleado_form</field>
+			<field name="model">upowood.empleado</field>
+			<field name="arch" type="xml">
+				<form string="Empleados">
+					<header>
+						<button name="btn_submit_to_despedido" string="Despedir"
+							type="object" class="oe_highlight" states="contratado"></button>
+						<button name="btn_submit_to_contratado" string="Contratar"
+							type="object" class="oe_highlight" states="despedido"></button>
+						<field name='state' widget='statusbar' />
+					</header>
+					<group string="Empleados">
+						<notebook colspan="4">
+							<page string="Datos personales">
+								<group>
+									<field name="nombre" />
+									<field name="apellidos" />
+									<field name="dni" />
+									<field name="email" />
+									<field name="telefono" />
+									<field name="puesto" />
+									<field name="salario" />
+								</group>
+							</page>
+							<page string="Ventas">
+								<group>
+									<field name="venta_ids" />
+								</group>
+							</page>
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id=" upowood_empleado_tree_view">
+			<field name="name">view_upowood_empleado_tree</field>
+			<field name="model">upowood.empleado</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="nombre" />
+					<field name="apellidos" />
+					<field name="dni" />
+					<field name="email" />
+					<field name="telefono" />
+					<field name="puesto" />
+					<field name="salario" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_empleado" model="ir.actions.act_window">
+			<field name="name">Empleado</field>
+			<field name="res_model">upowood.empleado</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<menuitem name="Empleados" id="empleados_submenu"
+			parent="upowood" sequence="100" />
+		<menuitem name="Ver Empleados" id="ver_empleados_submenu_2"
+			parent="empleados_submenu" sequence="100" action="act_empleado" />
+	</data>
+</odoo>

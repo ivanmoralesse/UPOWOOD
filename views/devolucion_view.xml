@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_upowood_devolucion_form">
+			<field name="name">view_upowood_devolucion_form</field>
+			<field name="model">upowood.devolucion</field>
+			<field name="arch" type="xml">
+				<form string="Devoluciones">
+					<group string="Devoluciones">
+						<field name="fechaDevolucion"/>
+						<field name="producto_ids"/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id=" upowood_devolucion_tree_view">
+			<field name="name">view_upowood_devolucion_tree</field>
+			<field name="model">upowood.devolucion</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+						<field name="fechaDevolucion"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_devolucion" model="ir.actions.act_window">
+			<field name="name">Devoluciones</field>
+			<field name="res_model">upowood.devolucion</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Devoluciones" id="devoluciones_submenu"
+			parent="upowood" sequence="100" />
+		<menuitem name="Ver Devoluciones" id="ver_devoluciones_submenu_2"
+			parent="devoluciones_submenu" sequence="100" action="act_devolucion" />
+	</data>
+</odoo>

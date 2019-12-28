@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+encoding//models/__init__.py=utf-8
+encoding//models/cliente.py=utf-8
+encoding//models/devolucion.py=utf-8
+encoding//models/empleado.py=utf-8
+encoding//models/envio.py=utf-8
+encoding//models/material.py=utf-8
+encoding//models/modelo.py=utf-8
+encoding//models/models.py=utf-8
+encoding//models/persona.py=utf-8
+encoding//models/producto.py=utf-8
+encoding//models/proveedor.py=utf-8
+encoding//models/venta.py=utf-8
+encoding/__init__.py=utf-8
+encoding/__manifest__.py=utf-8

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data noupdate="1">
+
+		<record id="material1" model="upowood.material">
+			<field name="descripcion">Madera de roble</field>
+			<field name="nombre">Madera</field>
+			<field name="precio">0150.00</field>
+		</record>
+
+		<record id="proveedor1" model="upowood.proveedor">
+			<field name="CIF">S9304333I</field>
+			<field name="nombre">Maderas Logístico</field>
+			<field name="direccion">Valencia</field>
+			<field name="material_ids" eval="[(6, 0, [material1, ])]"></field>
+		</record>
+
+		<record id="modelo1" model="upowood.modelo">
+			<field name="nombre">Mesa KEVIN</field>
+			<field name="descripcion">Mesa de madera</field>
+			<field name="material_ids" eval="[(6, 0, [material1, ])]"></field>
+		</record>
+
+		<record id="devolucion1" model="upowood.devolucion">
+			<field name="fechaDevolucion">20/12/2019</field>
+		</record>
+
+		<record id="envio1" model="upowood.envio">
+			<field name="direccion">Madrid</field>
+			<field name="cp">28001</field>
+			<field name="fechaEnvio">15/11/2019</field>
+			<field name="fechaLlegada">11/12/2019</field>
+		</record>
+
+		<record id="producto1" model="upowood.producto">
+			<field name="precio">100</field>
+			<field name="iva">20</field>
+			<field name="fechaFabricacion">11/11/2019</field>
+			<field name="modelo_id" ref="modelo1"></field>
+			<field name="devolucion_id" ref="devolucion1"></field>
+		</record>
+
+		<record id="cliente1" model="upowood.cliente">
+			<field name="nombre">Ana</field>
+			<field name="apellidos">Tomía</field>
+			<field name="dni">11222333S</field>
+			<field name="email">Ana@gmail.com</field>
+			<field name="telefono">644252623</field>
+			<field name="direccion">Madrid</field>
+		</record>
+		
+		<record id="empleado1" model="upowood.empleado">
+			<field name="nombre">Igor</field>
+			<field name="apellidos">Dito</field>
+			<field name="dni">32151474S</field>
+			<field name="email">Igor@gmail.com</field>
+			<field name="telefono">644885279</field>
+			<field name="puesto">vendedor</field>
+			<field name="salario">1200</field>
+		</record>
+
+		<record id="venta1" model="upowood.venta">
+			<field name="fechaVenta">28/12/2019</field>
+			<field name="producto_ids" eval="[(6, 0, [producto1, ])]"></field>
+			<field name="cliente_id" ref="cliente1"></field>
+			<field name="empleado_id" ref="empleado1"></field>
+			<field name="envio_id" ref="envio1"></field>
+		</record>
+
+	</data>
+</odoo>

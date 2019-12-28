@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_upowood_venta_form">
+			<field name="name">view_upowood_venta_form</field>
+			<field name="model">upowood.venta</field>
+			<field name="arch" type="xml">
+				<form string="Ventas">
+					<group string="ventas">
+						<group>
+							<field name="idVenta" />
+						</group>
+						<notebook colspan="4">
+							<page string="Información general">
+								<group>
+									<field name="fechaVenta" />
+									<field name="producto_ids" widget="many2many" />
+									<field name="total" />
+								</group>
+							</page>
+							<page string="Asociado a">
+								<group>
+									<field name="cliente_id" />
+									<field name="empleado_id" />
+									<field name="envio_id" />
+								</group>
+							</page>
+						</notebook>
+
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id=" upowood_venta_tree_view">
+			<field name="name">view_upowood_venta_tree</field>
+			<field name="model">upowood.venta</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="idVenta" />
+					<field name="fechaVenta" />
+					<field name="total" />
+				</tree>
+			</field>
+		</record>
+
+
+
+		<record model="ir.ui.view" id="view_upowood_venta_search">
+			<field name="name">view_upowood_venta_search</field>
+			<field name="model">upowood.venta</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Ventas">
+					<filter string="Ventas de hoy"
+						domain="[ '&amp;', ('fechaVenta','&gt;', ((context_today()-datetime.timedelta(days=1)).strftime('%d-%m-%Y'))), ('fechaVenta','&lt;', ((context_today()+datetime.timedelta(days=1)).strftime('%d-%m-%Y')))]" />
+					<filter string="Ventas de ayer"
+						domain="[ '&amp;', ('fechaVenta','&gt;', ((context_today()-datetime.timedelta(days=2)).strftime('%d-%m-%Y'))), ('fechaVenta','&lt;', ((context_today()).strftime('%d-%m-%Y')))]" />
+					<filter string="Ventas de hace más de un mes"
+						domain="[('fechaVenta','&lt;', ((context_today()-datetime.timedelta(days=30)).strftime('%d-%m-%Y')))]" />
+
+					<separator orientation="vertical" />
+					<field name="cliente_id" />
+					<group expand="0" string="Agrupar por...">
+						<filter name="group_by_cliente" string="Cliente"
+							context="{'group_by':'cliente_id'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="act_venta" model="ir.actions.act_window">
+			<field name="name">Venta</field>
+			<field name="res_model">upowood.venta</field>
+			<field name="view_mode">tree,form</field>
+
+			<field name="search_view_id" ref="view_upowood_venta_search" />
+		</record>
+
+		<menuitem name="Ventas" id="ventas_submenu" parent="upowood"
+			sequence="100" />
+		<menuitem name="Ver Ventas" id="ver_ventas_submenu_2"
+			parent="ventas_submenu" sequence="100" action="act_venta" />
+	</data>
+</odoo>

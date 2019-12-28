@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="view_upowood_material_form">
+			<field name="name">view_upowood_material_form</field>
+			<field name="model">upowood.material</field>
+			<field name="arch" type="xml">
+				<form string="Materiales">
+					<group string="Materiales">
+						<group colspan="4">
+							<field name="idMaterial" />
+							<field name="nombre" />
+						</group>
+
+						<notebook colspan="4">
+							<page string="Información general">
+								<group>
+									<field name="descripcion" />
+									<field name="precio" />
+								</group>
+							</page>
+							<page string="Proveedores">
+								<group>
+									<field name="proveedor_ids" widget="many2many" nolabel="1"/>
+								</group>
+							</page>
+
+							<page string="Modelos">
+								<group>
+									<field name="modelo_ids" widget="many2many" nolabel="1"/>
+								</group>
+							</page>
+
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id=" upowood_material_tree_view">
+			<field name="name">view_upowood_material_tree</field>
+			<field name="model">upowood.material</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="idMaterial" />
+					<field name="descripcion" />
+					<field name="nombre" />
+					<field name="precio" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_material" model="ir.actions.act_window">
+			<field name="name">Materiales</field>
+			<field name="res_model">upowood.material</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Materiales" id="materiales_submenu"
+			parent="upowood" sequence="100" />
+		<menuitem name="Ver Materiales" id="ver_materiales_submenu_2"
+			parent="materiales_submenu" sequence="100" action="act_material" />
+	</data>
+</odoo>

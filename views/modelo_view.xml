@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="view_upowood_modelo_form">
+			<field name="name">view_upowood_modelo_form</field>
+			<field name="model">upowood.modelo</field>
+			<field name="arch" type="xml">
+				<form string="Modelos">
+					<group string="Modelos">
+						<group colspan="4">
+							<field name="nombre" />
+						</group>
+						
+						<notebook colspan="4">
+							<page string="Información general">
+								<group>
+									<field name="descripcion" />
+								</group>
+							</page>
+							<page string="Materiales">
+								<group>
+									<field name="material_ids" widget="many2many" nolabel="1"/>
+								</group>
+							</page>
+							<page string="Productos">
+								<group>
+									<field name="producto_ids" widget="many2many" nolabel="1"/>
+								</group>
+							</page>
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id=" upowood_modelo_tree_view">
+			<field name="name">view_upowood_modelo_tree</field>
+			<field name="model">upowood.modelo</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="nombre" />
+					<field name="descripcion" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_modelo" model="ir.actions.act_window">
+			<field name="name">Modelos</field>
+			<field name="res_model">upowood.modelo</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Modelos" id="modelos_submenu"
+			parent="upowood" sequence="100" />
+		<menuitem name="Ver Modelos" id="ver_modelos_submenu_2"
+			parent="modelos_submenu" sequence="100" action="act_modelo" />
+	</data>
+</odoo>

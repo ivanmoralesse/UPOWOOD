@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="view_upowood_producto_form">
+			<field name="name">view_upowood_producto_form</field>
+			<field name="model">upowood.producto</field>
+			<field name="arch" type="xml">
+				<form string="Productos">
+					<group string="Productos">
+						<group>
+							<field name="idProducto" />
+							<field name="vendido"/>
+						</group>
+						<notebook colspan="4">
+							<page string="Información general">
+								<group>
+									<field name="precio" />
+									<field name="iva" />
+									<field name="fechaFabricacion" />
+								</group>
+							</page>
+							<page string="Información de Interés">
+								<group>
+									<field name="modelo_id" />
+									<field name="devolucion_ids" />
+									<field name="venta_ids" widget="many2many" />
+								</group>
+							</page>
+						</notebook>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id=" upowood_producto_tree_view">
+			<field name="name">view_upowood_producto_tree</field>
+			<field name="model">upowood.producto</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="idProducto" />
+					<field name="nombre_M" />
+					<field name="precio" />
+					<field name="iva" />
+					<field name="fechaFabricacion" />
+					<field name="vendido"/>
+					
+				</tree>
+			</field>
+		</record>
+
+		<!-- Calendar View -->
+		<record model="ir.ui.view" id="view_upowood_producto_calendar">
+			<field name="name">view_upowood_producto_calendar</field>
+			<field name="model">upowood.producto</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Productos" color="idProducto"
+					date_start="fechaFabricacion" mode="month">
+					<field name="nombre_M" />
+					<field name="idProducto" />
+					<field name="vendido"/>
+				</calendar>
+			</field>
+		</record>
+
+		<record id="act_producto" model="ir.actions.act_window">
+			<field name="name">Productos</field>
+			<field name="res_model">upowood.producto</field>
+			<field name="view_mode">tree,form,calendar</field>
+		</record>
+
+		<menuitem name="Productos" id="productos_submenu"
+			parent="upowood" sequence="100" />
+		<menuitem name="Ver Productos" id="ver_productos_submenu_2"
+			parent="productos_submenu" sequence="100" action="act_producto" />
+	</data>
+</odoo>
