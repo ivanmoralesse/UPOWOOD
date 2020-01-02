@@ -34,7 +34,7 @@
 
 		<record id="producto1" model="upowood.producto">
 			<field name="precio">100</field>
-			<field name="iva">20</field>
+			<field name="iva">21</field>
 			<field name="fechaFabricacion">11/11/2019</field>
 			<field name="modelo_id" ref="modelo1"></field>
 			<field name="devolucion_id" ref="devolucion1"></field>
@@ -48,7 +48,7 @@
 			<field name="telefono">644252623</field>
 			<field name="direccion">Madrid</field>
 		</record>
-		
+
 		<record id="empleado1" model="upowood.empleado">
 			<field name="nombre">Igor</field>
 			<field name="apellidos">Dito</field>
@@ -66,7 +66,7 @@
 			<field name="empleado_id" ref="empleado1"></field>
 			<field name="envio_id" ref="envio1"></field>
 		</record>
-		
+
 		<record id="material2" model="upowood.material">
 			<field name="descripcion">Madera de Pino</field>
 			<field name="nombre">Madera</field>
@@ -113,7 +113,7 @@
 			<field name="telefono">644585823</field>
 			<field name="direccion">Barcelona</field>
 		</record>
-		
+
 		<record id="empleado2" model="upowood.empleado">
 			<field name="nombre">Marcia</field>
 			<field name="apellidos">Ana</field>
@@ -130,6 +130,20 @@
 			<field name="cliente_id" ref="cliente2"></field>
 			<field name="empleado_id" ref="empleado2"></field>
 			<field name="envio_id" ref="envio2"></field>
+		</record>
+
+		<record id="producto3" model="upowood.producto">
+			<field name="precio">278</field>
+			<field name="iva">21</field>
+			<field name="modelo_id" ref="modelo2"></field>
+			<field name="fechaFabricacion">2/01/2019</field>
+		</record>
+		
+		<record id="producto4" model="upowood.producto">
+			<field name="precio">300</field>
+			<field name="iva">21</field>
+			<field name="modelo_id" ref="modelo1"></field>
+			<field name="fechaFabricacion">16/06/2019</field>
 		</record>
 	</data>
 </odoo>
