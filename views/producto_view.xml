@@ -9,13 +9,14 @@
 					<group string="Productos">
 						<group>
 							<field name="idProducto" />
-							<field name="vendido"/>
+							<field name="vendido" />
 						</group>
 						<notebook colspan="4">
 							<page string="Información general">
 								<group>
-									<field name="precio" />
+									<field name="precioIva" />
 									<field name="iva" />
+									<field name="precio" />
 									<field name="fechaFabricacion" />
 								</group>
 							</page>
@@ -42,8 +43,8 @@
 					<field name="precio" />
 					<field name="iva" />
 					<field name="fechaFabricacion" />
-					<field name="vendido"/>
-					
+					<field name="vendido" />
+
 				</tree>
 			</field>
 		</record>
@@ -58,11 +59,11 @@
 					date_start="fechaFabricacion" mode="month">
 					<field name="nombre_M" />
 					<field name="idProducto" />
-					<field name="vendido"/>
+					<field name="vendido" />
 				</calendar>
 			</field>
 		</record>
-		
+
 		<record model="ir.ui.view" id="view_upowood_producto_search">
 			<field name="name">view_upowood_producto_search</field>
 			<field name="model">upowood.producto</field>
@@ -81,7 +82,7 @@
 			<field name="name">Productos</field>
 			<field name="res_model">upowood.producto</field>
 			<field name="view_mode">tree,form,calendar</field>
-			
+
 			<field name="search_view_id" ref="view_upowood_producto_search" />
 		</record>
 

@@ -12,6 +12,7 @@ class persona(models.Model):
     dni = fields.Char('DNI', size=64, required=True)
     email = fields.Char('Email', size=64)
     telefono = fields.Integer('Telefono')
+    foto = fields.Binary('Imagen')
     
     _sql_constraints = [('persona_dni_unique', 'UNIQUE (dni) ', 'El dni ya existe')]
             

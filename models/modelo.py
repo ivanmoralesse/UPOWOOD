@@ -11,6 +11,7 @@ class modelo(models.Model):
     descripcion = fields.Char('Descripcion', size=64)
     material_ids = fields.Many2many("upowood.material",string="Materiales")
     producto_ids = fields.One2many("upowood.producto","modelo_id",string="Productos")
+    foto = fields.Binary('Imagen')
     
     
     _sql_constraints = [('nombre_unique', 'unique(nombre)', 

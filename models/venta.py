@@ -43,4 +43,6 @@ class venta(models.Model):
     def _check_empleado(self):
         if(self.empleado_id.state == 'despedido'):
             raise models.ValidationError('Un empleado despedido no puede realizar ventas')
+        
+    
     

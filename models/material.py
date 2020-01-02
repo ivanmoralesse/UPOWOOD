@@ -12,6 +12,7 @@ class material(models.Model):
     precio = fields.Float('Precio', (4,2))
     proveedor_ids = fields.Many2many("upowood.proveedor",string="Proveedores")
     modelo_ids = fields.Many2many("upowood.modelo",string="Modelos")
+    foto = fields.Binary('Imagen')
     
     @api.one
     def asignarID(self):

@@ -17,13 +17,19 @@
 						<notebook colspan="4">
 							<page string="Datos personales">
 								<group>
-									<field name="nombre" />
-									<field name="apellidos" />
-									<field name="dni" />
-									<field name="email" />
-									<field name="telefono" />
-									<field name="puesto" />
-									<field name="salario" />
+									<group>
+										<field name="nombre" />
+										<field name="apellidos" />
+										<field name="dni" />
+										<field name="email" />
+										<field name="telefono" />
+										<field name="puesto" />
+										<field name="salario" />
+									</group>
+									<group>
+										<field name="foto" widget="image" nolabel="1"
+											class="oe_avatar" />
+									</group>
 								</group>
 							</page>
 							<page string="Ventas">

@@ -66,6 +66,70 @@
 			<field name="empleado_id" ref="empleado1"></field>
 			<field name="envio_id" ref="envio1"></field>
 		</record>
+		
+		<record id="material2" model="upowood.material">
+			<field name="descripcion">Madera de Pino</field>
+			<field name="nombre">Madera</field>
+			<field name="precio">210.99</field>
+		</record>
 
+		<record id="proveedor2" model="upowood.proveedor">
+			<field name="CIF">E04422259</field>
+			<field name="nombre">Maderístico</field>
+			<field name="direccion">Sevilla</field>
+			<field name="material_ids" eval="[(6, 0, [material2, ])]"></field>
+		</record>
+
+		<record id="modelo2" model="upowood.modelo">
+			<field name="nombre">Mesa de Pino</field>
+			<field name="descripcion">Mesa a la sombra de los pinos</field>
+			<field name="material_ids" eval="[(6, 0, [material2, ])]"></field>
+		</record>
+
+		<record id="devolucion2" model="upowood.devolucion">
+			<field name="fechaDevolucion">10/10/2019</field>
+		</record>
+
+		<record id="envio2" model="upowood.envio">
+			<field name="direccion">Barcelona (Tarragona)</field>
+			<field name="cp">08001</field>
+			<field name="fechaEnvio">17/05/2019</field>
+			<field name="fechaLlegada">20/05/2019</field>
+		</record>
+
+		<record id="producto2" model="upowood.producto">
+			<field name="precio">250</field>
+			<field name="iva">21</field>
+			<field name="fechaFabricacion">1/03/2019</field>
+			<field name="modelo_id" ref="modelo2"></field>
+			<field name="devolucion_id" ref="devolucion2"></field>
+		</record>
+
+		<record id="cliente2" model="upowood.cliente">
+			<field name="nombre">Helen</field>
+			<field name="apellidos">Chufe</field>
+			<field name="dni">14788526S</field>
+			<field name="email">Helen@gmail.com</field>
+			<field name="telefono">644585823</field>
+			<field name="direccion">Barcelona</field>
+		</record>
+		
+		<record id="empleado2" model="upowood.empleado">
+			<field name="nombre">Marcia</field>
+			<field name="apellidos">Ana</field>
+			<field name="dni">45632244E</field>
+			<field name="email">Marcia@gmail.com</field>
+			<field name="telefono">644985375</field>
+			<field name="puesto">vendedor</field>
+			<field name="salario">1500</field>
+		</record>
+
+		<record id="venta2" model="upowood.venta">
+			<field name="fechaVenta">17/05/2019</field>
+			<field name="producto_ids" eval="[(6, 0, [producto2, ])]"></field>
+			<field name="cliente_id" ref="cliente2"></field>
+			<field name="empleado_id" ref="empleado2"></field>
+			<field name="envio_id" ref="envio2"></field>
+		</record>
 	</data>
 </odoo>

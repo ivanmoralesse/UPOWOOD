@@ -9,8 +9,8 @@ class producto(models.Model):
     _rec_name='nombre_M'
  
     idProducto = fields.Integer('ID de producto', compute="asignarID", store=False)
-    precio = fields.Float('Precio')
-    iva = fields.Integer('IVA')
+    precio = fields.Float('Precio sin IVA')
+    iva = fields.Integer('IVA', default=21)
     fechaFabricacion = fields.Datetime('Fecha fabricación', required=True, autodate=True)
     modelo_id = fields.Many2one("upowood.modelo",string="Modelos", required=True)
     devolucion_ids = fields.Many2many("upowood.devolucion", string="Devolucion")
@@ -19,6 +19,7 @@ class producto(models.Model):
     vendido = fields.Boolean('Vendido', compute="isVendido", store=True, default=False)
     numeroVentas = fields.Integer('Numero de Ventas', compute='getNumerodeVentas', default=0, store=True);
     numeroDevoluciones = fields.Integer('Numero de Devoluciones', compute='getNumerodeDevoluciones', default=0, store=True);
+    precioIva = fields.Float(compute='calcular_precio', store=True, string="Precio")
     
     @api.one
     @api.depends("modelo_id")
@@ -47,6 +48,11 @@ class producto(models.Model):
             self.vendido = False
         else:
             self.vendido = True
+            
+    @api.one
+    @api.depends('precio', 'iva')
+    def calcular_precio(self):
+        self.precioIva = (self.precio + ((self.precio*self.iva) /100))
         
         
         

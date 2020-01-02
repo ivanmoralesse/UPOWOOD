@@ -9,9 +9,15 @@
 				<form string="Modelos">
 					<group string="Modelos">
 						<group colspan="4">
-							<field name="nombre" />
+							<group>
+								<field name="nombre" />
+							</group>
+							<group>
+								<field name="foto" widget="image" nolabel="1"
+									class="oe_avatar" />
+							</group>
 						</group>
-						
+
 						<notebook colspan="4">
 							<page string="Información general">
 								<group>
@@ -20,12 +26,12 @@
 							</page>
 							<page string="Materiales">
 								<group>
-									<field name="material_ids" widget="many2many" nolabel="1"/>
+									<field name="material_ids" widget="many2many" nolabel="1" />
 								</group>
 							</page>
 							<page string="Productos">
 								<group>
-									<field name="producto_ids" widget="many2many" nolabel="1"/>
+									<field name="producto_ids" widget="many2many" nolabel="1" />
 								</group>
 							</page>
 						</notebook>
