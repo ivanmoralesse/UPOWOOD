@@ -16,3 +16,10 @@ class modelo(models.Model):
     
     _sql_constraints = [('nombre_unique', 'unique(nombre)', 
                      'No puede haber dos productos con el mismo nombre.')]
+    
+    
+    
+    def btn_desasociarProductos(self):
+        for i in self.producto_ids:
+            if i.vendido == False:
+                self.write({'producto_ids': [ (2, i.idProducto) ]})

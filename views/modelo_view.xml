@@ -7,6 +7,10 @@
 			<field name="model">upowood.modelo</field>
 			<field name="arch" type="xml">
 				<form string="Modelos">
+					<header>
+						<button name="btn_desasociarProductos"
+							string="Desasociar Productos" type="object" />
+					</header>
 					<group string="Modelos">
 						<group colspan="4">
 							<group>
