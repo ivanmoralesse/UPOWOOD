@@ -23,6 +23,7 @@
 
 		<record id="devolucion1" model="upowood.devolucion">
 			<field name="fechaDevolucion">20/12/2019</field>
+			<field name="motivo">Madera interior podrida y húmeda</field>
 		</record>
 
 		<record id="envio1" model="upowood.envio">
@@ -88,6 +89,7 @@
 
 		<record id="devolucion2" model="upowood.devolucion">
 			<field name="fechaDevolucion">10/10/2019</field>
+			<field name="motivo">Pata rota, falta tornillo número 32</field>
 		</record>
 
 		<record id="envio2" model="upowood.envio">
