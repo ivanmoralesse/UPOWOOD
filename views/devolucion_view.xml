@@ -20,6 +20,7 @@
 			<field name="arch" type="xml">
 				<tree string="tree_string">
 					<field name="fechaDevolucion" />
+					<field name="motivo" />
 				</tree>
 			</field>
 		</record>

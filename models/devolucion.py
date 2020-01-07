@@ -9,6 +9,7 @@ class devolucion(models.Model):
 
     fechaDevolucion = fields.Datetime('Fecha devolución', required=True, autodate=True)
     producto_ids = fields.Many2many("upowood.producto", string="Productos")
+    motivo = fields.Char('Motivo de la devolución', size=600, required=False)
     
     
     @api.onchange('producto_ids')
