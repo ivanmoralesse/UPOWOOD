@@ -9,6 +9,7 @@
 					<group string="Devoluciones">
 						<field name="fechaDevolucion" />
 						<field name="producto_ids" />
+						<field name="motivo" />
 					</group>
 				</form>
 			</field>
@@ -20,7 +21,6 @@
 			<field name="arch" type="xml">
 				<tree string="tree_string">
 					<field name="fechaDevolucion" />
-					<field name="motivo" />
 				</tree>
 			</field>
 		</record>
